@@ -8,11 +8,23 @@ importers:
 
   .: {}
 
-  apps/WAATP/common:
+  apps/waatp/common:
     dependencies:
       '@socialpad/core':
         specifier: workspace:*
         version: link:../../../packages/core
+      '@socialpad/miniapp':
+        specifier: workspace:*
+        version: link:../../../packages/miniapp
+      '@socialpad/standalone':
+        specifier: workspace:*
+        version: link:../../../packages/standalone
+      '@vkontakte/vk-mini-apps-router':
+        specifier: ^1.4.2
+        version: 1.7.0(@vkontakte/vk-bridge@2.15.3)(@vkontakte/vkui@6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@vkontakte/vkui':
+        specifier: ^6.0.0
+        version: 6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@waatp':
         specifier: link:./src
         version: link:src
@@ -60,11 +72,17 @@ importers:
         specifier: ^5.4.10
         version: 5.4.11(@types/node@22.9.0)
 
-  apps/WAATP/miniapp:
+  apps/waatp/miniapp:
     dependencies:
+      '@socialpad/miniapp':
+        specifier: workspace:*
+        version: link:../../../packages/miniapp
       '@socialpad/waatp':
         specifier: workspace:*
         version: link:../common
+      '@vkontakte/vk-mini-apps-router':
+        specifier: ^1.4.2
+        version: 1.7.0(@vkontakte/vk-bridge@2.15.3)(@vkontakte/vkui@6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -83,7 +101,44 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.7.1(vite@5.4.11(@types/node@22.9.0))
+        version: 3.7.1(@swc/helpers@0.5.15)(vite@5.4.11(@types/node@22.9.0))
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^5.4.10
+        version: 5.4.11(@types/node@22.9.0)
+
+  apps/waatp/standalone:
+    dependencies:
+      '@socialpad/standalone':
+        specifier: workspace:*
+        version: link:../../../packages/standalone
+      '@socialpad/waatp':
+        specifier: workspace:*
+        version: link:../common
+      '@vkontakte/vk-mini-apps-router':
+        specifier: ^1.4.2
+        version: 1.7.0(@vkontakte/vk-bridge@2.15.3)(@vkontakte/vkui@6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/node':
+        specifier: ^22.8.2
+        version: 22.9.0
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.5.0
+        version: 3.7.1(@swc/helpers@0.5.15)(vite@5.4.11(@types/node@22.9.0))
       typescript:
         specifier: ~5.6.2
         version: 5.6.3
@@ -123,6 +178,114 @@ importers:
         version: 8.14.0(eslint@9.14.0)(typescript@5.6.3)
 
   packages/core:
+    dependencies:
+      fetch-jsonp:
+        specifier: ^1.3.0
+        version: 1.3.0
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@socialpad/conf':
+        specifier: workspace:*
+        version: link:../conf
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^5.4.10
+        version: 5.4.11(@types/node@22.9.0)
+
+  packages/miniapp:
+    dependencies:
+      '@socialpad/core':
+        specifier: workspace:*
+        version: link:../core
+      '@socialpad/vkid':
+        specifier: workspace:*
+        version: link:../vkid
+      '@vkontakte/vk-bridge':
+        specifier: ^2.15.3
+        version: 2.15.3
+      '@vkontakte/vk-bridge-react':
+        specifier: ^1.0.1
+        version: 1.0.1(@types/react@18.3.12)(@vkontakte/vk-bridge@2.15.3)(react@18.3.1)
+      '@vkontakte/vk-mini-apps-router':
+        specifier: ^1.4.2
+        version: 1.7.0(@vkontakte/vk-bridge@2.15.3)(@vkontakte/vkui@6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@vkontakte/vkui':
+        specifier: ^6.7.3
+        version: 6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@socialpad/conf':
+        specifier: workspace:*
+        version: link:../conf
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^5.4.10
+        version: 5.4.11(@types/node@22.9.0)
+
+  packages/standalone:
+    dependencies:
+      '@socialpad/core':
+        specifier: workspace:*
+        version: link:../core
+      '@socialpad/vkid':
+        specifier: workspace:*
+        version: link:../vkid
+      '@vkontakte/vk-mini-apps-router':
+        specifier: ^1.4.2
+        version: 1.7.0(@vkontakte/vk-bridge@2.15.3)(@vkontakte/vkui@6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@vkontakte/vkui':
+        specifier: ^6.7.3
+        version: 6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@socialpad/conf':
+        specifier: workspace:*
+        version: link:../conf
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^5.4.10
+        version: 5.4.11(@types/node@22.9.0)
+
+  packages/vkid:
     dependencies:
       react:
         specifier: ^18.3.1
@@ -321,6 +484,21 @@ packages:
     resolution: {integrity: sha512-CXtq5nR4Su+2I47WPOlWud98Y5Lv8Kyxp2ukhgFx/eW6Blm18VXJO5WuQylPugRo8nbluoi6GvvxBLqHcvqUUw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@floating-ui/core@1.6.8':
+    resolution: {integrity: sha512-7XJ9cPU+yI2QeLS+FCSlqNFZJq8arvswefkZrYI1yQBbftw6FyrZOxYSh+9S7z7TpeWlRt9zJ5IhM1WIL334jA==}
+
+  '@floating-ui/dom@1.6.12':
+    resolution: {integrity: sha512-NP83c0HjokcGVEMeoStg317VD9W7eDlGK7457dMBANbKA6GJZdc7rjujdgqzTaz93jkGgc5P/jeWbaCHnMNc+w==}
+
+  '@floating-ui/react-dom@2.1.2':
+    resolution: {integrity: sha512-06okr5cgPzMNBy+Ycse2A6udMi4bqwW/zgBF/rwjcNqWkyr82Mcg8b0vjX8OJpZFy/FKjJmw6wV7t44kK6kW7A==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
+  '@floating-ui/utils@0.2.8':
+    resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -352,6 +530,10 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@remix-run/router@1.21.0':
+    resolution: {integrity: sha512-xfSkCAchbdG5PnbrKqFWwia4Bi61nH+wm8wLEqfHDyp7Y3dZzgqS2itV8i4gAq9pC2HsTpwyBC6Ds8VHZ96JlA==}
+    engines: {node: '>=14.0.0'}
 
   '@rollup/rollup-android-arm-eabi@4.26.0':
     resolution: {integrity: sha512-gJNwtPDGEaOEgejbaseY6xMFu+CPltsc8/T+diUTTbOQLqD+bnrJq9ulH6WD69TqwqWmrfRAtUv30cCFZlbGTQ==}
@@ -515,6 +697,9 @@ packages:
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
 
+  '@swc/helpers@0.5.15':
+    resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
+
   '@swc/types@0.1.15':
     resolution: {integrity: sha512-XKaZ+dzDIQ9Ot9o89oJQ/aluI17+VvUnIpYJTcZtvv1iYX6MzHh3Ik2CSR7MdPKpPwfZXHBeCingb2b4PoDVdw==}
 
@@ -598,6 +783,51 @@ packages:
     peerDependencies:
       vite: ^4 || ^5
 
+  '@vkontakte/icons-sprite@2.3.0':
+    resolution: {integrity: sha512-YzAcdZdcM8DqgTMDOSBqfXN72vEaCe6YfdRLH4DAwB0niRQrly6E/2AyYaiIowsvCklF8O0DmpVp84mibdQEQg==}
+    peerDependencies:
+      react: ^16.9.34 || ^17 || ^18
+
+  '@vkontakte/icons@2.153.0':
+    resolution: {integrity: sha512-+U/SQLVyNQ/1IB84bNjgyEvHK31E0Xq7tQLjx7oXBlX7BDF/F6qu/tzB+OXtyE+Map7rcr/OCt1FZowyxImuyw==}
+    peerDependencies:
+      react: ^16.9.34 || ^17 || ^18
+
+  '@vkontakte/vk-bridge-react@1.0.1':
+    resolution: {integrity: sha512-+r0zxh1UUDcok2VtsPDc6jWHQezfsqHK3M9LAnTpKI9XyZlrgfEQA8cYsc0F8urOXUJ3FhEHXuJQjQGgK0Z5PA==}
+    peerDependencies:
+      '@types/react': ^17.0.0 || ^18.0.0
+      '@vkontakte/vk-bridge': ^2.11.2
+      react: ^17.0.0 || ^18.1.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  '@vkontakte/vk-bridge@2.15.3':
+    resolution: {integrity: sha512-GRu5SerjLWlBv/wUAUfMxbz0agkGLJL6rlXaDG2BQTS3gUS8flj9HqIUgNsOIUFIMe4L/10l1ilXEQErP/nOUA==}
+
+  '@vkontakte/vk-mini-apps-router@1.7.0':
+    resolution: {integrity: sha512-W3rotskgp+OQtlF2hgtC0hz+aPzvlPh+VcThEvf7xTXMmczjEJuykMmy/5Cl5t6kILKx5E/o6+49VKyIH6KZ7g==}
+    peerDependencies:
+      '@vkontakte/vk-bridge': ^2.7.2
+      '@vkontakte/vkui': ^5.1.0 || ^6.0.0
+
+  '@vkontakte/vkjs@1.3.0':
+    resolution: {integrity: sha512-GfwCC2JNetiiFZcEWyK9LOy8PHUKK2+L8VSJMbXKnpi4LnkxXYMEBsun1rEKGliPITYZC50nLm7jhxbCgcxVuw==}
+    engines: {yarn: ^1.21.1}
+
+  '@vkontakte/vkui-floating-ui@0.2.4':
+    resolution: {integrity: sha512-61YTYsKpOr07mzH5+NP0UYdlXmdjf1LSsE7OTT6/982Gmij37NUy2qZVCvaXIMBIRcnggbnJCTYCDHuFQbhFlg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
+  '@vkontakte/vkui@6.7.4':
+    resolution: {integrity: sha512-EUpL2k8+veOIkSJw4gDspZ6DQIgXO2PgfwIzpaT8E4zP90j2JcHz1LB91sPyveuAn4AzCmnqHD1pIyAZXbEIkw==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -639,6 +869,10 @@ packages:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
+  clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
+
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -655,6 +889,9 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
 
   debug@4.3.7:
     resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
@@ -751,6 +988,9 @@ packages:
 
   fastq@1.17.1:
     resolution: {integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==}
+
+  fetch-jsonp@1.3.0:
+    resolution: {integrity: sha512-hxCYGvmANEmpkHpeWY8Kawfa5Z1t2csTpIClIDG/0S92eALWHRU1RnGaj86Tf5Cc0QF+afSa4SQ4pFB2rFM5QA==}
 
   file-entry-cache@8.0.0:
     resolution: {integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==}
@@ -1003,6 +1243,9 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -1181,6 +1424,23 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
+  '@floating-ui/core@1.6.8':
+    dependencies:
+      '@floating-ui/utils': 0.2.8
+
+  '@floating-ui/dom@1.6.12':
+    dependencies:
+      '@floating-ui/core': 1.6.8
+      '@floating-ui/utils': 0.2.8
+
+  '@floating-ui/react-dom@2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/dom': 1.6.12
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@floating-ui/utils@0.2.8': {}
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -1205,6 +1465,8 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  '@remix-run/router@1.21.0': {}
 
   '@rollup/rollup-android-arm-eabi@4.26.0':
     optional: true
@@ -1290,7 +1552,7 @@ snapshots:
   '@swc/core-win32-x64-msvc@1.9.2':
     optional: true
 
-  '@swc/core@1.9.2':
+  '@swc/core@1.9.2(@swc/helpers@0.5.15)':
     dependencies:
       '@swc/counter': 0.1.3
       '@swc/types': 0.1.15
@@ -1305,8 +1567,13 @@ snapshots:
       '@swc/core-win32-arm64-msvc': 1.9.2
       '@swc/core-win32-ia32-msvc': 1.9.2
       '@swc/core-win32-x64-msvc': 1.9.2
+      '@swc/helpers': 0.5.15
 
   '@swc/counter@0.1.3': {}
+
+  '@swc/helpers@0.5.15':
+    dependencies:
+      tslib: 2.8.1
 
   '@swc/types@0.1.15':
     dependencies:
@@ -1412,12 +1679,59 @@ snapshots:
       '@typescript-eslint/types': 8.14.0
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-react-swc@3.7.1(vite@5.4.11(@types/node@22.9.0))':
+  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.15)(vite@5.4.11(@types/node@22.9.0))':
     dependencies:
-      '@swc/core': 1.9.2
+      '@swc/core': 1.9.2(@swc/helpers@0.5.15)
       vite: 5.4.11(@types/node@22.9.0)
     transitivePeerDependencies:
       - '@swc/helpers'
+
+  '@vkontakte/icons-sprite@2.3.0(react@18.3.1)':
+    dependencies:
+      '@swc/helpers': 0.5.15
+      react: 18.3.1
+
+  '@vkontakte/icons@2.153.0(react@18.3.1)':
+    dependencies:
+      '@vkontakte/icons-sprite': 2.3.0(react@18.3.1)
+      react: 18.3.1
+
+  '@vkontakte/vk-bridge-react@1.0.1(@types/react@18.3.12)(@vkontakte/vk-bridge@2.15.3)(react@18.3.1)':
+    dependencies:
+      '@vkontakte/vk-bridge': 2.15.3
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.12
+
+  '@vkontakte/vk-bridge@2.15.3': {}
+
+  '@vkontakte/vk-mini-apps-router@1.7.0(@vkontakte/vk-bridge@2.15.3)(@vkontakte/vkui@6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      '@remix-run/router': 1.21.0
+      '@vkontakte/vk-bridge': 2.15.3
+      '@vkontakte/vkui': 6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
+  '@vkontakte/vkjs@1.3.0':
+    dependencies:
+      '@swc/helpers': 0.5.15
+      clsx: 2.1.1
+
+  '@vkontakte/vkui-floating-ui@0.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/react-dom': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@swc/helpers': 0.5.15
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@vkontakte/vkui@6.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@swc/helpers': 0.5.15
+      '@vkontakte/icons': 2.153.0(react@18.3.1)
+      '@vkontakte/vkjs': 1.3.0
+      '@vkontakte/vkui-floating-ui': 0.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      date-fns: 3.6.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:
@@ -1460,6 +1774,8 @@ snapshots:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
+  clsx@2.1.1: {}
+
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -1475,6 +1791,8 @@ snapshots:
       which: 2.0.2
 
   csstype@3.1.3: {}
+
+  date-fns@3.6.0: {}
 
   debug@4.3.7:
     dependencies:
@@ -1606,6 +1924,8 @@ snapshots:
   fastq@1.17.1:
     dependencies:
       reusify: 1.0.4
+
+  fetch-jsonp@1.3.0: {}
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -1831,6 +2151,8 @@ snapshots:
   ts-api-utils@1.4.0(typescript@5.6.3):
     dependencies:
       typescript: 5.6.3
+
+  tslib@2.8.1: {}
 
   type-check@0.4.0:
     dependencies:

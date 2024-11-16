@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vkontakte/vk-mini-apps-router": "^1.4.2",
     "@socialpad/waatp": "workspace:*",
+    "@socialpad/miniapp": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

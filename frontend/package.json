@@ -2,7 +2,9 @@
   "name": "frontend",
   "private": "true",
   "scripts": {
-    "build": "pnpm --filter @waatp/miniapp build --emptyOutDir  --outDir  ../../../dists/waatp/miniapp",
-    "miniapp": "pnpm --filter @waatp/miniapp dev"
+    "build:miniapp": "pnpm --filter @waatp/miniapp build --emptyOutDir  --outDir  ../../../dists/waatp/miniapp",
+    "build:standalone": "pnpm --filter @waatp/standalone build --emptyOutDir  --outDir  ../../../dists/waatp/standalone",
+    "miniapp": "pnpm --filter @waatp/miniapp dev",
+    "standalone": "pnpm --filter @waatp/standalone dev"
   }
 }
